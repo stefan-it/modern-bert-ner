@@ -1,0 +1,21 @@
+batch_sizes:
+- 4
+learning_rates:
+- 5e-06
+epochs:
+- 10
+context_sizes:
+- 0
+seeds:
+- 1
+layers: '-2'
+subword_poolings:
+- first
+use_crf: false
+use_tensorboard: true
+cuda: '0'
+task: ner
+datasets:
+- conll03_english
+hf_model: answerdotai/ModernBERT-large
+model_short_name: modern_bert_large_customized
