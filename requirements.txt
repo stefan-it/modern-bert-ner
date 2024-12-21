@@ -1,0 +1,2 @@
+git+https://github.com/flairNLP/flair.git@68508ccc6a0fe1864fbadecbd8d7fa2f4408a2e6
+git+https://github.com/huggingface/transformers.git@8f38f58f3de5a35f9b8505e9b48985dce5470985
