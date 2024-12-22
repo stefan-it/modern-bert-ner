@@ -18,6 +18,6 @@ All experiments are performed with latest Flair version, Micro F1-Score on the d
 | `bs4-e10-lr5e-06`       |   95.09 | 95.09 ± 0.0 |
 | `bs16-e10-cs0-lr0.0001` |   94.41 | 94.41 ± 0.0 |
 
-Performance is very low - I opened an issue about this [here](https://github.com/AnswerDotAI/ModernBERT/issues/149).
+Performance is currently very low - I opened an issue about this [here](https://github.com/AnswerDotAI/ModernBERT/issues/149).
 
 Watch and star this repo for updates.
