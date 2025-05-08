@@ -86,5 +86,6 @@ Please watch and star this repo for updates.
 
 I fixed the Tokenizer issue on the model side by forking the original ModernBERT Large model and applying the fixes in the Tokenizer config.
 This model is available [here](https://huggingface.co/stefan-it/ModernBERT-large-tokenizer-fix) under the `stefan-it/ModernBERT-large-tokenizer-fix` Model Hub identifier.
+Using this new model has the huge advantage, that fixes in the Flair library are no longer needed!
 
 Additionally, new experiments are conducted by pooling the first and last subtoken (instead of only using the first subtoken embedding), as this improved performance.
