@@ -81,3 +81,10 @@ More runs:
 | `bs16-e10-cs0-lr5e-05` |   96.14 |   95.83 |   96.17 |   96.08 |   96.05 | 96.05 ± 0.12 |
 
 Please watch and star this repo for updates.
+
+# Results III
+
+I fixed the Tokenizer issue on the model side by forking the original ModernBERT Large model and applying the fixes in the Tokenizer config.
+This model is available [here](https://huggingface.co/stefan-it/ModernBERT-large-tokenizer-fix) under the `stefan-it/ModernBERT-large-tokenizer-fix` Model Hub identifier.
+
+Additionally, new experiments are conducted by pooling the first and last subtoken (instead of only using the first subtoken embedding), as this improved performance.
