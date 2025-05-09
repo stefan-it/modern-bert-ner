@@ -89,3 +89,10 @@ This model is available [here](https://huggingface.co/stefan-it/ModernBERT-large
 Using this new model has the huge advantage, that fixes in the Flair library are no longer needed!
 
 Additionally, new experiments are conducted by pooling the first and last subtoken (instead of only using the first subtoken embedding), as this improved performance.
+
+Here are new runs, with latest Flair and Transformers version:
+
+| Configuration          | Pooling      |   Run 1 |   Run 2 |   Run 3 |   Run 4 |   Run 5 | Avg.         |
+|------------------------|--------------|---------|---------|---------|---------|---------|--------------|
+| `bs16-e10-cs0-lr2e-05` | `first`      |   96.13 |   96.44 |   96.20 |   95.93 |   96.65 | 96.27 ± 0.25 |
+| `bs16-e10-cs0-lr2e-05` | `first_last` |   96.36 |   96.58 |   96.14 |   96.19 |   96.35 | 96.32 ± 0.15 |
