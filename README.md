@@ -1,8 +1,10 @@
-# ModernBERT NER Experiments
+# ModernBERT/Ettin NER Experiments
 
-My NER Experiments with ModernBERT on the official CoNLL-2003 NER dataset.
+My NER Experiments with ModernBERT and Ettin on the official CoNLL-2003 NER dataset.
 
-# Results I
+# ModernBERT
+
+## Results I
 
 Current results so far - at the moment with only one run with a specific configuration (= batch size, learning rate, nunber of epochs, context size).
 
@@ -20,7 +22,7 @@ All experiments are performed with latest Flair version, Micro F1-Score on the d
 
 Performance is currently very low - I opened an issue about this [here](https://github.com/AnswerDotAI/ModernBERT/issues/149).
 
-# Results II
+## Results II
 
 After some debugging, it seems that the original tokenizer prepends a whitespace when performing the `tokenizer()` call in combination
 with the `is_split_into_words` option (which is needed for token classification tasks).
@@ -82,7 +84,7 @@ More runs:
 
 Please watch and star this repo for updates.
 
-# Results III
+## Results III
 
 I fixed the Tokenizer issue on the model side by forking the original ModernBERT Large model and applying the fixes in the Tokenizer config.
 This model is available [here](https://huggingface.co/stefan-it/ModernBERT-large-tokenizer-fix) under the `stefan-it/ModernBERT-large-tokenizer-fix` Model Hub identifier.
@@ -96,3 +98,31 @@ Here are new runs, with latest Flair and Transformers version:
 |------------------------|--------------|---------|---------|---------|---------|---------|--------------|
 | `bs16-e10-cs0-lr2e-05` | `first`      |   96.13 |   96.44 |   96.20 |   95.93 |   96.65 | 96.27 ± 0.25 |
 | `bs16-e10-cs0-lr2e-05` | `first_last` |   96.36 |   96.58 |   96.14 |   96.19 |   96.35 | 96.32 ± 0.15 |
+
+Results on the test set (also Micro F1-Score):
+
+| Configuration          |   Run 1 |   Run 2 |   Run 3 |   Run 4 |   Run 5 | Avg.         |
+|------------------------|---------|---------|---------|---------|---------|--------------|
+| `bs16-e10-cs0-lr2e-05` |   92.22 |   91.92 |   92.31 |   92.35 |   92.34 | 92.23 ± 0.16 |
+
+# Ettin
+
+The same hyper-parameter search is used for the recently released Ettin series. Ettin uses the same tokenizer as ModernBERT, so the exact same tokenizer fix is applied - the forked model can be found [here](https://huggingface.co/stefan-it/ettin-encoder-400m-tokenizer-fix)
+
+## Results I
+
+The `first_last` pooling strategy is also used - here are the results:
+
+| Configuration          |   Run 1 |   Run 2 |   Run 3 |   Run 4 |   Run 5 | Avg.         |
+|------------------------|---------|---------|---------|---------|---------|--------------|
+| `bs16-e10-cs0-lr4e-05` |   96    |   96.17 |   96.31 |   96.19 |   96.2  | 96.17 ± 0.1  |
+| `bs16-e10-cs0-lr3e-05` |   96.25 |   96.23 |   96.12 |   96.3  |   95.81 | 96.14 ± 0.18 |
+| `bs16-e10-cs0-lr2e-05` |   96.09 |   96.24 |   95.88 |   96.1  |   96.12 | 96.09 ± 0.12 |
+| `bs16-e10-cs0-lr5e-05` |   95.98 |   95.93 |   96.11 |   96.1  |   96    | 96.02 ± 0.07 |
+| `bs16-e10-cs0-lr1e-05` |   95.77 |   95.8  |   96.14 |   96.01 |   95.84 | 95.91 ± 0.14 |
+
+Results on the test set (Micro F1-Score):
+
+| Configuration          |   Run 1 |   Run 2 |   Run 3 |   Run 4 |   Run 5 | Avg.         |
+|------------------------|---------|---------|---------|---------|---------|--------------|
+| `bs16-e10-cs0-lr4e-05` |   92.25 |   91.72 |   91.98 |   92.08 |    92.3 | 92.07 ± 0.21 |
